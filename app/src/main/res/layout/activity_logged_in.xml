@@ -8,6 +8,21 @@
     android:background="#636B62">
 
     <Button
+        android:id="@+id/refresh"
+        android:layout_width="130dp"
+        android:layout_height="80dp"
+        android:background="#47805b"
+        android:onClick="refresh"
+        android:text="REFRESH"
+        android:textColor="#ffffff"
+        app:layout_constraintBottom_toTopOf="@+id/info"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.85"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.816" />
+
+    <Button
         android:id="@+id/post"
         android:layout_width="130dp"
         android:layout_height="80dp"
@@ -17,10 +32,10 @@
         android:textColor="#ffffff"
         app:layout_constraintBottom_toTopOf="@+id/info"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.199"
+        app:layout_constraintHorizontal_bias="0.142"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.774" />
+        app:layout_constraintVertical_bias="0.816" />
 
     <TextView
         android:id="@+id/info"

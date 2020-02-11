@@ -32,9 +32,17 @@ public class LoggedIn extends AppCompatActivity {
         setContentView(R.layout.activity_logged_in);
         display();
     }
+    @Override
+    protected void onResume(){
+        super.onResume();
+        display();
+    }
     public void post(View view){
         Intent postIntent = new Intent(this, PostActivity.class);
         startActivity(postIntent);
+    }
+    public void refresh(View V){
+        display();
     }
     public void display(){
         FirebaseFirestore db = FirebaseFirestore.getInstance();
