@@ -41,6 +41,7 @@ public class LoggedIn extends AppCompatActivity {
         Intent postIntent = new Intent(this, PostActivity.class);
         startActivity(postIntent);
     }
+
     public void refresh(View V){
         display();
     }

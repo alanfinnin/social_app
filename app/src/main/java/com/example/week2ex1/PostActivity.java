@@ -49,6 +49,7 @@ public class PostActivity extends AppCompatActivity {
                     }
                 });
     }
+
     public void sendData(View view){
         boolean stringPass = true;
         FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();

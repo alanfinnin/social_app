@@ -7,46 +7,40 @@
     tools:context=".LoggedIn"
     android:background="#636B62">
 
-    <Button
-        android:id="@+id/refresh"
-        android:layout_width="130dp"
-        android:layout_height="80dp"
-        android:background="#47805b"
-        android:onClick="refresh"
-        android:text="REFRESH"
-        android:textColor="#ffffff"
-        app:layout_constraintBottom_toTopOf="@+id/info"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.85"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.816" />
-
-    <Button
-        android:id="@+id/post"
-        android:layout_width="130dp"
-        android:layout_height="80dp"
-        android:background="#47805b"
-        android:onClick="post"
-        android:text="POST"
-        android:textColor="#ffffff"
-        app:layout_constraintBottom_toTopOf="@+id/info"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.142"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.816" />
-
     <TextView
         android:id="@+id/info"
+        android:layout_width="266dp"
+        android:layout_height="484dp"
         android:textColor="#ffffff"
-        android:layout_width="200dp"
-        android:layout_height="400dp"
-        android:layout_marginBottom="60dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
-        />
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/floatingActionButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="20dp"
+        android:layout_marginBottom="20dp"
+        android:backgroundTint="@color/colorPrimary"
+        android:clickable="true"
+        android:onClick="post"
+        android:tint="@android:color/background_light"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:maxImageSize="40dp"
+        app:srcCompat="@android:drawable/ic_input_add" />
+
+    <ImageButton
+        android:id="@+id/imageButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="5dp"
+        android:onClick="refresh"
+        app:layout_constraintBottom_toTopOf="@+id/info"
+        app:layout_constraintStart_toStartOf="@+id/info"
+        app:srcCompat="@android:drawable/ic_popup_sync" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
