@@ -4,8 +4,23 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".LoggedIn"
-    android:background="#636B62">
+    android:background="#636B62"
+    tools:context=".LoggedIn">
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/refresh"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="20dp"
+        android:layout_marginBottom="20dp"
+        android:backgroundTint="@color/colorPrimary"
+        android:clickable="true"
+        android:onClick="refresh"
+        android:src="@android:drawable/stat_notify_sync"
+        android:tint="@android:color/background_light"
+        app:layout_constraintBottom_toTopOf="@+id/floatingActionButton"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:maxImageSize="40dp" />
 
     <TextView
         android:id="@+id/info"
@@ -32,15 +47,5 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:maxImageSize="40dp"
         app:srcCompat="@android:drawable/ic_input_add" />
-
-    <ImageButton
-        android:id="@+id/imageButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="5dp"
-        android:onClick="refresh"
-        app:layout_constraintBottom_toTopOf="@+id/info"
-        app:layout_constraintStart_toStartOf="@+id/info"
-        app:srcCompat="@android:drawable/ic_popup_sync" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
