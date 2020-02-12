@@ -6,8 +6,11 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.util.Log;
 import android.view.View;
+import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -31,6 +34,9 @@ import static com.google.firebase.Timestamp.now;
 
 public class PostActivity extends AppCompatActivity {
     int numberOfPosts = 0;
+    //The maximum number of chars a post can have
+    private final int maxPostChars = 128;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -51,11 +57,30 @@ public class PostActivity extends AppCompatActivity {
                         }
                     }
                 });
+
+
+        final EditText postText = (EditText) findViewById(R.id.post_text);
+        final TextView textView = (TextView) findViewById(R.id.textViewPostLength);
+        textView.setText("0/" + maxPostChars);
+
+        postText.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+
+            }
+            @Override
+            public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+                int postLength = postText.getText().length();
+                textView.setText(postLength + "/" + maxPostChars);
+            }
+            @Override
+            public void afterTextChanged(Editable editable) {
+
+            }
+        });
     }
 
     public void sendData(View view){
-        //The maximum number of chars a post can have
-        final int maxPostChars = 128;
         //Boolean value of whether post string is valid or not
         boolean validPostString = true;
 
@@ -98,4 +123,6 @@ public class PostActivity extends AppCompatActivity {
             postToast.show();
         }
     }
+
+
 }

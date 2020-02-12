@@ -59,7 +59,7 @@ public class LoggedIn extends AppCompatActivity {
                                 numberOfPosts++;
                                 //System.out.println(document.getId());
                                 //System.out.println(document.getData());
-                                postList.add("\n" + document.get("username") + "\n" + document.get("post") + "\n");
+                                postList.add("\n" + document.get("username") + "\n" + document.get("time") + "\n" + document.get("post") + "\n");
                                 //TextView info = (TextView) findViewById(R.id.info);
                                 //info.append("\n" + document.get("username") + "\n" + document.get("post") + "\n");
                             }
