@@ -11,12 +11,12 @@
         android:id="@+id/post"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
         android:background="@color/colorAccent"
+
         android:onClick="sendData"
         android:text="POST"
         android:textColor="@color/colorText"
-
-        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/post_text"
         app:layout_constraintTop_toTopOf="@+id/post_text" />
 
@@ -24,15 +24,16 @@
         android:id="@+id/post_text"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="40dp"
         android:layout_marginTop="75dp"
         android:ems="10"
         android:gravity="start|top"
         android:hint="What's on your mind?"
         android:inputType="textMultiLine"
         android:maxLength="128"
-        android:textColor="@color/colorText"
-        android:textColorHint="@color/colorTextHint"
+        android:textColor="@color/colorTextHint"
+        android:textColorHint="@color/colorPlusSign"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.25"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -46,4 +47,5 @@
         android:textSize="18sp"
         app:layout_constraintStart_toStartOf="@+id/post"
         app:layout_constraintTop_toBottomOf="@+id/post" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>
