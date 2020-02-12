@@ -51,12 +51,14 @@ public class PostActivity extends AppCompatActivity {
     }
 
     public void sendData(View view){
+        final int maxPostChars = 128;
         boolean stringPass = true;
         FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
 
         TextView postText = (TextView) findViewById(R.id.post_text);
         String postString = postText.getText().toString();
-        if(postString.length() > 80 || postString.equals(""))
+
+        if(postString.length() > maxPostChars || postString.trim().equals(""))
             stringPass = false;
 
         if(stringPass) {
