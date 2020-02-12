@@ -26,6 +26,7 @@ import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
 
+import static android.widget.Toast.makeText;
 import static com.google.firebase.Timestamp.now;
 
 public class PostActivity extends AppCompatActivity {
@@ -66,6 +67,12 @@ public class PostActivity extends AppCompatActivity {
         if(postString.length() > maxPostChars || postString.trim().equals(""))
             validPostString = false;
 
+        Context context = getApplicationContext();
+        CharSequence text = "Post failed!";
+        int duration = Toast.LENGTH_SHORT;
+
+        Toast postToast = Toast.makeText(context, text, duration);
+
         if(validPostString) {
             FirebaseFirestore db = FirebaseFirestore.getInstance();
 
@@ -81,25 +88,14 @@ public class PostActivity extends AppCompatActivity {
             String postNumber = String.valueOf(numberOfPosts);
             posts.document(postNumber).set(post);
 
-            //Display toast on successful post
-            Context context = getApplicationContext();
-            CharSequence text = "Successfully posted!";
-            int duration = Toast.LENGTH_SHORT;
-
-            Toast toast = Toast.makeText(context, text, duration);
-            toast.show();
+            postToast.setText("Successfully posted");
+            postToast.show();
 
             Intent intent = new Intent(this, LoggedIn.class);
             startActivity(intent);
+        }else{
+            postToast.setText("Post failed - too long!");
+            postToast.show();
         }
-        else{
-            Context context = getApplicationContext();
-            CharSequence text = "Failed to post - invalid post string!";
-            int duration = Toast.LENGTH_SHORT;
-
-            Toast toast = Toast.makeText(context, text, duration);
-            toast.show();
-        }
-
     }
 }
