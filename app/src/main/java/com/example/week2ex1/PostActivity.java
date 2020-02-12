@@ -3,11 +3,13 @@ package com.example.week2ex1;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
@@ -51,15 +53,20 @@ public class PostActivity extends AppCompatActivity {
     }
 
     public void sendData(View view){
-        boolean stringPass = true;
+        //The maximum number of chars a post can have
+        final int maxPostChars = 128;
+        //Boolean value of whether post string is valid or not
+        boolean validPostString = true;
+
         FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
 
         TextView postText = (TextView) findViewById(R.id.post_text);
         String postString = postText.getText().toString();
-        if(postString.length() > 80 || postString.equals(""))
-            stringPass = false;
 
-        if(stringPass) {
+        if(postString.length() > maxPostChars || postString.trim().equals(""))
+            validPostString = false;
+
+        if(validPostString) {
             FirebaseFirestore db = FirebaseFirestore.getInstance();
 
             CollectionReference posts = db.collection("posts");
@@ -74,11 +81,24 @@ public class PostActivity extends AppCompatActivity {
             String postNumber = String.valueOf(numberOfPosts);
             posts.document(postNumber).set(post);
 
+            //Display toast on successful post
+            Context context = getApplicationContext();
+            CharSequence text = "Successfully posted!";
+            int duration = Toast.LENGTH_SHORT;
+
+            Toast toast = Toast.makeText(context, text, duration);
+            toast.show();
+
             Intent intent = new Intent(this, LoggedIn.class);
             startActivity(intent);
         }
         else{
-            postText.setText("Please set a valid post");
+            Context context = getApplicationContext();
+            CharSequence text = "Failed to post - invalid post string!";
+            int duration = Toast.LENGTH_SHORT;
+
+            Toast toast = Toast.makeText(context, text, duration);
+            toast.show();
         }
 
     }
