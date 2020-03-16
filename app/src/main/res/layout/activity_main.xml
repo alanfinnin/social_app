@@ -5,8 +5,8 @@
     android:id="@+id/email"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity"
-    android:background="@drawable/phone_background">
+    tools:context=".MainActivity">
+    <!--android:background="@drawable/phone_background">-->
 
     <Button
         android:id="@+id/sign_in"
