@@ -9,8 +9,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-
-        <activity android:name=".PostActivity"></activity>
+        android:
         <activity android:name=".post" />
         <activity android:name=".LoggedIn" />
         <activity android:name=".MainActivity">
